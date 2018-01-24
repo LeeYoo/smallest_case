@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <classPathEntry location="mysql-connector-java-5.1.32.jar"/>
+    <context id="DB2Tables" targetRuntime="MyBatis3" defaultModelType="flat">
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <!--
+        <plugin type="org.mybageneratorsator.plugins.EqualsHashCodePlugin" />
+        <plugin type="org.mybageneratorsator.plugins.ToStringPlugin" />
+        -->
+
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/>
+            <!--数据库连接的信息：驱动类、连接地址、用户名、密码   库名子?characterEncoding=utf8   -->
+
+        </commentGenerator>
+        <!-- 服务端库表crud代码生成 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/smallest_case?characterEncoding=utf8&amp;tinyInt1isBit=false"
+                        userId="root"
+                        password="root"/>
+        <javaModelGenerator targetPackage="com.leyo.springboot.dao.entity"
+                            targetProject="../../java"/>
+        <sqlMapGenerator targetPackage="mybatis.case" targetProject="../../resources"/>
+        <javaClientGenerator targetPackage="com.leyo.springboot.dao.mapper"
+                             targetProject="../../java"
+                             type="XMLMAPPER"/>
+
+        <!--<table schema="smallest_case" tableName="my_test" enableCountByExample="true"-->
+               <!--enableSelectByExample="true"-->
+               <!--enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" domainObjectName="MyTest">-->
+            <!--<generatedKey column="id" sqlStatement="JDBC"/>-->
+        <!--</table>-->
+
+
+    </context>
+</generatorConfiguration>
